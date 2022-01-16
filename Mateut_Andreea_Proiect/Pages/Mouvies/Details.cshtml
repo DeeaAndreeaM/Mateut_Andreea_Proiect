@@ -1,0 +1,43 @@
+﻿@page
+@model Mateut_Andreea_Proiect.Pages.Mouvies.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Mouvie</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Mouvie.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mouvie.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Mouvie.Regizor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mouvie.Regizor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Mouvie.PriceTicket)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mouvie.PriceTicket)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Mouvie.ReleaseDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mouvie.ReleaseDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Mouvie.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
