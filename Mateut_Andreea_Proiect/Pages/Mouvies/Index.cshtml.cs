@@ -46,9 +46,9 @@ namespace Mateut_Andreea_Proiect.Pages.Mouvies
 
 
 
-        public async Task OnGetAsync()
+       /* public async Task OnGetAsync()
         {
             Mouvie = await _context.Mouvie.Include(b => b.Releaser).ToListAsync();
-        }
+        }*/
     }
 }
