@@ -20,10 +20,29 @@ namespace Mateut_Andreea_Proiect.Pages.Categories
         }
 
         public IList<Category> Category { get;set; }
+        public MouvieData MouvieD { get; set; }
+        public int MouvieID { get; set; }
+        public int CategoryID { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int? id, int? categoryID)
         {
-            Category = await _context.Category.ToListAsync();
+            MouvieD = new MouvieData();
+
+            MouvieD.Mouvies = await _context.Mouvie
+            .Include(b => b.Releaser)
+            .Include(b => b.MouvieCategories)
+            .ThenInclude(b => b.Category)
+            .AsNoTracking()
+            .OrderBy(b => b.Title)
+            .ToListAsync();
+            if (id != null)
+            {
+                MouvieID = id.Value;
+                Mouvie mouvie = MouvieD.Mouvies
+                .Where(i => i.ID == id.Value).Single();
+                MouvieD.Categories = mouvie.MouvieCategories.Select(s => s.Category);
+            }
         }
     }
 }
+
